@@ -22,3 +22,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Movie::class, function ($faker) {
+    return [
+        'title' => $faker->sentence(3),
+        'url' => $faker->url,
+        'desc' => $faker->sentence(6),
+    ];
+});

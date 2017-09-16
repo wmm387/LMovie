@@ -22,12 +22,10 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        return '/wmm/movie';
+    }
 
     /**
      * Create a new controller instance.
