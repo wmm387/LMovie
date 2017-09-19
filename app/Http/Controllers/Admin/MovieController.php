@@ -14,4 +14,9 @@ class MovieController extends Controller
 
     	return view('admin.movie.index', compact('movies'));
     }
+
+    public function create()
+    {
+    	return "Hello world";
+    }
 }

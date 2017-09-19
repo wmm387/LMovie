@@ -1,58 +1,53 @@
 @extends('admin.layout.main')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading" >
-                        <h3 class="panel-title" style="display: inline-block;">Posts&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-                        <button type="button" class="btn btn-primary create_movie">新建电影条目</button>
-                    </div>
-                    <div class="panel-body">
-
-                        <table class="table table-bordered table-striped table-condensed">
-                        <tbody>
-                            <tr>
-                                <th style="width: 10px">id</th>
-                                <th>电影名</th>
-                                <th>分享网址</th>
-                                <th>电影介绍</th>
-                                <th>操作</th>
-                            </tr>
-                            @foreach($movies as $movie)
-                            <tr>
-                                <td>{{$movie->id}}</td>
-                                <td>{{$movie->title}}</td>
-                                <td>{{$movie->url}}</td>
-                                <td>{{$movie->desc}}</td>
-                                <td>
-                                    <button type="button" name="{{$movie->id}}" class="btn btn-primary edit_movie">编辑</button>
-                                    <button type="button" name="{{$movie->id}}" class="btn btn-danger del_movie">删除</button>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {{$movies->links()}}
-
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid">
+    <div class="row page-title-row">
+        <div class="col-md-6">
+            <h3>电影 <small>» 列表</small></h3>
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{{ url('wmm/movie/create') }}" class="btn btn-success btn-md">
+                <i class="fa fa-plus-circle"></i>创建电影条目
+            </a>
         </div>
     </div>
-@stop
 
-@section('scripts')
-    <script type="text/javascript">
-        $('.create_movie').click(function () {
-            window.location.href="{{ url('wmm/movie/create') }}"
-        })
-        $('.edit_movie').click(function (event) {
-            window.location.href="{{ url('wmm/movie/edit') }}" + '/' + event.toElement.name
-        })
-        $('.del_movie').click(function () {
-            window.location.href="{{ url('wmm/movie/del') }}" + '/' + event.toElement.name
-        })
-    </script>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <table id="posts-table" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>电影名字</th>
+                    <th>分享网址</th>
+                    <th>电影介绍</th>
+                    <th data-sortable="false">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($movies as $movie)
+                <tr>
+                    <td>{{ $movie->id }} </td>
+                    <td>{{ $movie->title }}</td>
+                    <td><a href="{{ $movie->url }}">{!! str_limit($movie->url, 30, '...') !!}</a></td>
+                    <td>{{ $movie->desc }}</td>
+                    <td>
+                        <a href="/admin/movie/{{ $movie->id }}/edit" class="btn btn-sm btn-info">
+                            <i class="fa fa-edit"></i>编辑
+                        </a>
+                        <a href="/blog/{{ $movie->slug }}" class="btn btn-sm btn-danger">
+                            <i class="fa fa-eye"></i> 删除
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+            </table>
+            {{$movies->links()}}
+        </div>
+    </div>
+
+</div>
 @stop
