@@ -23,6 +23,5 @@ Route::group(['prefix' => 'wmm', 'namespace' => 'Admin',
 	Route::get('movie', 'MovieController@index');
 	Route::get('movie/create', 'MovieController@create');
 	Route::post('movie/store', 'MovieController@store');
-
 });
 Auth::routes();

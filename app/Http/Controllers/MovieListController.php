@@ -14,4 +14,5 @@ class MovieListController extends Controller
 
         return view('movie.index', compact('movies'));
     }
+
 }

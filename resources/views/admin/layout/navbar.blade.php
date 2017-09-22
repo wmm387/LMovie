@@ -2,13 +2,13 @@
     <li><a href="#">Home</a></li>
     @if (Auth::check())
     <li @if (Request::is('wmm/movie*')) class="active" @endif>
-        <a href="{{ url('/wmm/movie') }}">Movie</a>
+        <a href="{{ url('/wmm/movie') }}">Movies</a>
     </li>
-    <li @if (Request::is('wmm/music*')) class="active" @endif>
-        <a href="{{ url('/wmm/music') }}">Music</a>
+    <li @if (Request::is('wmm/tag*')) class="active" @endif>
+        <a href="{{ url('/wmm/tag') }}">Tags</a>
     </li>
-    <li @if (Request::is('wmm/fiction*')) class="active" @endif>
-        <a href="{{ url('/wmm/fiction') }}">Fiction</a>
+    <li @if (Request::is('wmm/upload*')) class="active" @endif>
+        <a href="{{ url('/wmm/upload') }}">Uploads</a>
     </li>
     @endif
 </ul>
