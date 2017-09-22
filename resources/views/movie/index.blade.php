@@ -2,6 +2,11 @@
     <head>
         <title>{{ config('movie.title') }}</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <style type="text/css">
+            .big {
+                font-size: 16px;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -11,8 +16,8 @@
             <ul>
             @foreach ($movies as $movie)
                 <li>
-                    <a target="_blank" href="{{ $movie->url }}">{{ $movie->title }}</a>
-                    <em>({{ $movie->created_at }})</em>
+                    <a target="_blank" href="{{ $movie->url }}"><b class="big">{{ $movie->title }} </b></a>
+                    <em> ({{ $movie->release_time }}年作品)</em>
                     <p>
                         {{ $movie->desc }}
                     </p>
