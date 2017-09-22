@@ -30,7 +30,7 @@
             @foreach ($movies as $movie)
                 <tr>
                     <td>{{ $movie->title }}</td>
-                    <td><a href="{{ $movie->url }}">{!! str_limit($movie->url, 30, '...') !!}</a></td>
+                    <td><a target="_blank" href="{{ $movie->url }}">{!! str_limit($movie->url, 30, '...') !!}</a></td>
                     <td>{{ $movie->desc }}</td>
                     <td>{{ $movie->release_time }} </td>
                     <td>

@@ -11,7 +11,7 @@
             <ul>
             @foreach ($movies as $movie)
                 <li>
-                    <a href="{{ $movie->url }}">{{ $movie->title }}</a>
+                    <a target="_blank" href="{{ $movie->url }}">{{ $movie->title }}</a>
                     <em>({{ $movie->created_at }})</em>
                     <p>
                         {{ $movie->desc }}
