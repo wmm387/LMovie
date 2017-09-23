@@ -1,7 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>{{ config('movie.title') }}</title>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Movie</title>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
         <style type="text/css">
             .big {
                 font-size: 16px;
@@ -22,9 +28,9 @@
                         {{ $movie->desc }}
                     </p>
                 </li>
+                <hr>
             @endforeach
             </ul>
-            <hr>
             {{ $movies->links() }}
         </div>
     </body>
