@@ -34,10 +34,11 @@
                     <td>{{ $movie->desc }}</td>
                     <td>{{ $movie->release_time }} </td>
                     <td>
-                        <a href="/admin/movie/{{ $movie->id }}/edit" class="btn btn-sm btn-info">
+                        <a href="{{url('wmm/movie/edit')}}/{{$movie->id}}" class="btn btn-sm btn-info">
                             <i class="fa fa-edit"></i>编辑
                         </a>
-                        <a href="/blog/{{ $movie->slug }}" class="btn btn-sm btn-danger">
+                        <a href="{{url('wmm/movie/delete')}}/{{$movie->id}}" class="btn btn-sm btn-danger"
+                            onclick="javascript:return del();">
                             <i class="fa fa-eye"></i> 删除
                         </a>
                     </td>
@@ -48,6 +49,18 @@
             {{$movies->links()}}
         </div>
     </div>
-
 </div>
+@stop
+
+@section('scripts')
+<script>
+    function del() {
+        var msg = "确定删除?"
+        if (confirm(msg) == true) {
+            return true
+        }else {
+            return false
+        }
+    }
+</script>
 @stop
